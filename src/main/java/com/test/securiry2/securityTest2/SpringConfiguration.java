@@ -14,30 +14,21 @@ import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class SpringConfiguration extends WebSecurityConfigurerAdapter {
-
+    @Autowired
     private DataSource dataSource;
 
-    @Autowired
+    /*@Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
-    }
+    }*/
 
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .withDefaultSchema()
-                .withUser(
-                        User.withUsername("pol")
-                                .password("pol")
-                                .roles("USER")
-                )
-                .withUser(
-                        User.withUsername("roman")
-                                .password("pass")
-                                .roles("ADMIN")
-                );
+                .usersByUsernameQuery("select username, password, enabled from users where username=?")
+                .authoritiesByUsernameQuery("select username, authority from authorities where username=?");
     }
 
     @Bean
