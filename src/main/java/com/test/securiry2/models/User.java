@@ -3,7 +3,7 @@ package com.test.securiry2.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="User")
+@Table(name="USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

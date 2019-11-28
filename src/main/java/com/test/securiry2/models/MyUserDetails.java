@@ -18,8 +18,8 @@ public class MyUserDetails implements UserDetails {
     private boolean active;
     private List<GrantedAuthority> authority;
 
-  /*  public MyUserDetails() {
-    }*/
+    public MyUserDetails() {
+    }
 
     public MyUserDetails(User user) {
         this.username = user.getUsername();

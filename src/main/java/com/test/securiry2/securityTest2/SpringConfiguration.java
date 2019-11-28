@@ -36,5 +36,6 @@ public class SpringConfiguration extends WebSecurityConfigurerAdapter {
                 .and().formLogin();
     }
 
+
 }
 
