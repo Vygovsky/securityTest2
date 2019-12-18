@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeResource {
     @GetMapping("/")
     public String home() {
-        return ("<h1>Home</h1>");
+        return ("<h1>Welcome</h1>");
     }
 
     @GetMapping("/admin")
